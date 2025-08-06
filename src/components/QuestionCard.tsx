@@ -1,9 +1,10 @@
-import type { Mode, Question } from "../types/index.js";
+import React, { useState } from 'react';
 import { Clock, CheckCircle, XCircle } from 'lucide-react';
-import React, { useState } from 'react'
-import { unmaskAnswer } from "../utils/answerMasking.js";
+import { unmaskAnswer } from '../utils/answerMasking';
+import { MODES } from '../utils/constants';
+import { Question, Mode } from '../types';
 
-interface IQuestionCardProps {
+interface QuestionCardProps {
     question: Question;
     onAnswer: (answer: number | string) => void;
     showAnswer: boolean;
@@ -12,9 +13,7 @@ interface IQuestionCardProps {
     timeLeft: number | null;
 }
 
-
-
-const QuestionCard: React.FC<IQuestionCardProps> = ({
+const QuestionCard: React.FC<QuestionCardProps> = ({
     question,
     onAnswer,
     showAnswer,
@@ -25,7 +24,7 @@ const QuestionCard: React.FC<IQuestionCardProps> = ({
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [textInput, setTextInput] = useState<string>('');
 
-    const correctAnser = unmaskAnswer(question.correctAnswer);
+    const correctAnswer = unmaskAnswer(question.correctAnswer);
 
     const handleSubmit = (): void => {
         if (question.type === 'multiple_choice') {
@@ -39,10 +38,10 @@ const QuestionCard: React.FC<IQuestionCardProps> = ({
 
     const isCorrect = (): boolean => {
         if (question.type === 'multiple_choice') {
-            return userAnswer === correctAnser
+            return userAnswer === correctAnswer;
         } else {
-            if (Array.isArray(correctAnser) && typeof userAnswer === 'string') {
-                return correctAnser.Answer.some((answer: string) =>
+            if (Array.isArray(correctAnswer) && typeof userAnswer === 'string') {
+                return correctAnswer.some((answer: string) =>
                     answer.toLowerCase() === userAnswer.toLowerCase()
                 );
             }
@@ -52,6 +51,7 @@ const QuestionCard: React.FC<IQuestionCardProps> = ({
 
     return (
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+            {/* Заголовок с таймером */}
             <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center space-x-2">
                     <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
@@ -70,11 +70,96 @@ const QuestionCard: React.FC<IQuestionCardProps> = ({
                     </div>
                 )}
             </div>
+
+            {/* Вопрос */}
             <h2 className="text-2xl font-semibold text-gray-900 mb-8">
                 {question.question}
             </h2>
-        </div>
-    )
-}
 
-export default QuestionCard
+            {/* Варианты ответов или поле ввода */}
+            {question.type === 'multiple_choice' && question.options ? (
+                <div className="space-y-3 mb-8">
+                    {question.options.map((option, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setSelectedOption(index)}
+                            disabled={showAnswer}
+                            className={`w-full text-left p-4 rounded-xl border-2 transition-all ${showAnswer
+                                    ? index === correctAnswer
+                                        ? 'border-green-500 bg-green-50'
+                                        : index === userAnswer && index !== correctAnswer
+                                            ? 'border-red-500 bg-red-50'
+                                            : 'border-gray-200 bg-gray-50'
+                                    : selectedOption === index
+                                        ? 'border-blue-500 bg-blue-50'
+                                        : 'border-gray-200 hover:border-gray-300 bg-white'
+                                }`}
+                        >
+                            <div className="flex items-center">
+                                <span className="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center mr-3 text-sm font-medium">
+                                    {String.fromCharCode(65 + index)}
+                                </span>
+                                {option}
+                                {showAnswer && index === correctAnswer && (
+                                    <CheckCircle className="w-5 h-5 text-green-500 ml-auto" />
+                                )}
+                                {showAnswer && index === userAnswer && index !== correctAnswer && (
+                                    <XCircle className="w-5 h-5 text-red-500 ml-auto" />
+                                )}
+                            </div>
+                        </button>
+                    ))}
+                </div>
+            ) : (
+                <div className="mb-8">
+                    <input
+                        type="text"
+                        value={textInput}
+                        onChange={(e) => setTextInput(e.target.value)}
+                        disabled={showAnswer}
+                        placeholder="Введите ваш ответ..."
+                        className={`w-full p-4 text-lg border-2 rounded-xl ${showAnswer
+                                ? isCorrect()
+                                    ? 'border-green-500 bg-green-50'
+                                    : 'border-red-500 bg-red-50'
+                                : 'border-gray-300 focus:border-blue-500 focus:outline-none'
+                            }`}
+                    />
+                    {showAnswer && Array.isArray(correctAnswer) && (
+                        <div className="mt-2 text-sm">
+                            <span className="text-gray-600">Правильные ответы: </span>
+                            <span className="font-medium text-green-600">
+                                {correctAnswer.join(', ')}
+                            </span>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Объяснение */}
+            {showAnswer && (
+                <div className="bg-blue-50 rounded-xl p-6 mb-8">
+                    <h3 className="font-semibold text-blue-900 mb-2">Объяснение:</h3>
+                    <p className="text-blue-800">{question.explanation}</p>
+                </div>
+            )}
+
+            {/* Кнопка отправки */}
+            {!showAnswer && (
+                <button
+                    onClick={handleSubmit}
+                    disabled={
+                        question.type === 'multiple_choice'
+                            ? selectedOption === null
+                            : !textInput.trim()
+                    }
+                    className="w-full bg-blue-500 text-white py-4 rounded-xl font-semibold text-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                >
+                    {mode === MODES.STUDY ? 'Показать ответ' : 'Ответить'}
+                </button>
+            )}
+        </div>
+    );
+};
+
+export default QuestionCard;
