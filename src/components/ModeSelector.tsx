@@ -18,7 +18,7 @@ const ModeSelector: React.FC<IModeSelectorProps> = ({ onSelect }) => {
         {
             id: MODES.PRACTICE,
             title: 'Тренировка',
-            description: 'Показ ответов с объяснениями',
+            description: 'Случайные вопросы с таймером',
             icon: Target,
             color: 'bg-green-500',
         },

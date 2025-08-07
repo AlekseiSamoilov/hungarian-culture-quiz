@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Clock, CheckCircle, XCircle } from 'lucide-react';
 import { unmaskAnswer } from '../utils/answerMasking';
-import { MODES, Mode } from '../utils/constants';
-import { Question } from '../types';
+import { MODES } from '../utils/constants';
+import { Mode, Question } from '../types';
 
 interface QuestionCardProps {
     question: Question;
@@ -103,14 +103,14 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                             onClick={() => setSelectedOption(index)}
                             disabled={showAnswer}
                             className={`w-full text-left p-4 rounded-xl border-2 transition-all ${showAnswer
-                                    ? index === correctAnswer
-                                        ? 'border-green-500 bg-green-50'
-                                        : index === userAnswer && index !== correctAnswer
-                                            ? 'border-red-500 bg-red-50'
-                                            : 'border-gray-200 bg-gray-50'
-                                    : selectedOption === index
-                                        ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200 hover:border-gray-300 bg-white'
+                                ? index === correctAnswer
+                                    ? 'border-green-500 bg-green-50'
+                                    : index === userAnswer && index !== correctAnswer
+                                        ? 'border-red-500 bg-red-50'
+                                        : 'border-gray-200 bg-gray-50'
+                                : selectedOption === index
+                                    ? 'border-blue-500 bg-blue-50'
+                                    : 'border-gray-200 hover:border-gray-300 bg-white'
                                 }`}
                         >
                             <div className="flex items-center">
@@ -137,10 +137,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                         disabled={showAnswer}
                         placeholder="Введите ваш ответ..."
                         className={`w-full p-4 text-lg border-2 rounded-xl ${showAnswer
-                                ? isCorrect()
-                                    ? 'border-green-500 bg-green-50'
-                                    : 'border-red-500 bg-red-50'
-                                : 'border-gray-300 focus:border-blue-500 focus:outline-none'
+                            ? isCorrect()
+                                ? 'border-green-500 bg-green-50'
+                                : 'border-red-500 bg-red-50'
+                            : 'border-gray-300 focus:border-blue-500 focus:outline-none'
                             }`}
                     />
                     {showAnswer && Array.isArray(correctAnswer) && correctAnswer.length > 0 && (

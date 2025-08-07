@@ -79,7 +79,7 @@ const HungarianQuizApp: React.FC = () => {
     }
 
     const result: QuizResult = {
-      qustionId: currentQuestion.id,
+      questionId: currentQuestion.id,
       userAnswer: answer,
       correct: isCorrect,
       timeSpent: currentMode === MODES.PRACTICE ? (timeLeft ? 60 - timeLeft : null) : null

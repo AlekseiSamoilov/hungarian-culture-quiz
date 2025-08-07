@@ -1,5 +1,5 @@
 import type { Question } from '../types/index.js';
-import { maskAnswer } from './answerMasking/';
+import { maskAnswer } from './answerMasking';
 
 // Тестовые данные вопросов
 export const testQuestions: Question[] = [

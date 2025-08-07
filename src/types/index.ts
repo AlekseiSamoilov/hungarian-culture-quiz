@@ -11,7 +11,7 @@ export interface Question {
 }
 
 export interface QuizResult {
-    qustionId: string;
+    questionId: string;
     userAnswer: number | string | null;
     correct: boolean;
     timeSpent?: number | null;
