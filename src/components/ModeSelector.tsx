@@ -74,3 +74,5 @@ const ModeSelector: React.FC<IModeSelectorProps> = ({ onSelect }) => {
         </div>
     )
 }
+
+export default ModeSelector

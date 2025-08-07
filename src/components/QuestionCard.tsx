@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Clock, CheckCircle, XCircle } from 'lucide-react';
 import { unmaskAnswer } from '../utils/answerMasking';
-import { MODES } from '../utils/constants';
-import { Question, Mode } from '../types';
+import { MODES, Mode } from '../utils/constants';
+import { Question } from '../types';
 
 interface QuestionCardProps {
     question: Question;
@@ -24,7 +24,25 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [textInput, setTextInput] = useState<string>('');
 
-    const correctAnswer = unmaskAnswer(question.correctAnswer);
+    // Защита от undefined question
+    if (!question) {
+        return (
+            <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <div className="text-center">
+                    <p className="text-gray-500">Загрузка вопроса...</p>
+                </div>
+            </div>
+        );
+    }
+
+    // Защита от undefined correctAnswer
+    let correctAnswer: number | string[];
+    try {
+        correctAnswer = unmaskAnswer(question.correctAnswer);
+    } catch (error) {
+        console.error('Error unmasking answer:', error);
+        correctAnswer = [];
+    }
 
     const handleSubmit = (): void => {
         if (question.type === 'multiple_choice') {
@@ -55,10 +73,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center space-x-2">
                     <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                        {question.category}
+                        {question.category || 'Категория'}
                     </span>
                     <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-sm">
-                        Сложность: {question.difficulty}/3
+                        Сложность: {question.difficulty || 1}/3
                     </span>
                 </div>
                 {timeLeft !== null && (
@@ -73,7 +91,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
             {/* Вопрос */}
             <h2 className="text-2xl font-semibold text-gray-900 mb-8">
-                {question.question}
+                {question.question || 'Вопрос загружается...'}
             </h2>
 
             {/* Варианты ответов или поле ввода */}
@@ -125,7 +143,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                                 : 'border-gray-300 focus:border-blue-500 focus:outline-none'
                             }`}
                     />
-                    {showAnswer && Array.isArray(correctAnswer) && (
+                    {showAnswer && Array.isArray(correctAnswer) && correctAnswer.length > 0 && (
                         <div className="mt-2 text-sm">
                             <span className="text-gray-600">Правильные ответы: </span>
                             <span className="font-medium text-green-600">
@@ -137,7 +155,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             )}
 
             {/* Объяснение */}
-            {showAnswer && (
+            {showAnswer && question.explanation && (
                 <div className="bg-blue-50 rounded-xl p-6 mb-8">
                     <h3 className="font-semibold text-blue-900 mb-2">Объяснение:</h3>
                     <p className="text-blue-800">{question.explanation}</p>
