@@ -4,7 +4,7 @@ import QuestionCard from './components/QuestionCard';
 import ResultsScreen from './components/ResultScreen';
 import { MODES } from './utils/constants';
 import { unmaskAnswer } from './utils/answerMasking';
-import { testQuestions } from './utils/testData';
+import { hungarianCultureQuestions } from './utils/testData';
 import { Mode, Question, QuizResult } from './types';
 
 const HungarianQuizApp: React.FC = () => {
@@ -16,10 +16,9 @@ const HungarianQuizApp: React.FC = () => {
   const [quizComplete, setQuizComplete] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
 
-  // Инициализация вопросов в зависимости от режима
   useEffect(() => {
     if (currentMode) {
-      let selectedQuestions = [...testQuestions];
+      let selectedQuestions = [...hungarianCultureQuestions];
 
       if (currentMode === MODES.PRACTICE || currentMode === MODES.EXAM) {
         selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);

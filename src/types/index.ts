@@ -25,4 +25,21 @@ export interface ModeConfig {
     description: string;
     icon: React.ComponentType<any>;
     color: string;
+    enabled?: boolean;
+}
+
+export interface QuizSettings {
+    mode: Mode;
+    questionCount: number;
+    shuffle: boolean;
+}
+
+export interface QuizState {
+    settings: QuizSettings | null;
+    currentQuestionIndex: number;
+    userAnswers: QuizResult[];
+    showAnswer: boolean;
+    timeLeft: number | null;
+    quizComplete: boolean;
+    questions: Question[];
 }
