@@ -4,11 +4,27 @@ import QuestionCard from './components/QuestionCard';
 import ResultsScreen from './components/ResultScreen';
 import { MODES } from './utils/constants';
 import { unmaskAnswer } from './utils/answerMasking';
-import { hungarianCultureQuestions } from './utils/testData';
+import { hungarianCultureQuestions } from './utils/testData'; // Используем новые венгерские вопросы
 import { Mode, Question, QuizResult } from './types';
 
+interface QuizSettings {
+  mode: Mode;
+  questionCount: number;
+  shuffle: boolean;
+}
+
+// Функция для перемешивания массива (алгоритм Фишера-Йетса)
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 const HungarianQuizApp: React.FC = () => {
-  const [currentMode, setCurrentMode] = useState<Mode | null>(null);
+  const [currentSettings, setCurrentSettings] = useState<QuizSettings | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [userAnswers, setUserAnswers] = useState<QuizResult[]>([]);
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
@@ -16,16 +32,19 @@ const HungarianQuizApp: React.FC = () => {
   const [quizComplete, setQuizComplete] = useState<boolean>(false);
   const [questions, setQuestions] = useState<Question[]>([]);
 
+  // Инициализация вопросов в зависимости от настроек
   useEffect(() => {
-    if (currentMode) {
+    if (currentSettings) {
       let selectedQuestions = [...hungarianCultureQuestions];
 
-      if (currentMode === MODES.PRACTICE || currentMode === MODES.EXAM) {
-        selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
+      // Перемешиваем, если включено
+      if (currentSettings.shuffle) {
+        selectedQuestions = shuffleArray(selectedQuestions);
       }
 
-      if (currentMode === MODES.REVIEW) {
-        selectedQuestions = selectedQuestions.filter(q => q.difficulty >= 2);
+      // Ограничиваем количество вопросов
+      if (currentSettings.questionCount < selectedQuestions.length) {
+        selectedQuestions = selectedQuestions.slice(0, currentSettings.questionCount);
       }
 
       setQuestions(selectedQuestions);
@@ -34,17 +53,16 @@ const HungarianQuizApp: React.FC = () => {
       setShowAnswer(false);
       setQuizComplete(false);
 
-      if (currentMode === MODES.PRACTICE) {
+      // Устанавливаем таймер для режима тренировки
+      if (currentSettings.mode === MODES.PRACTICE) {
         setTimeLeft(60);
-      } else if (currentMode === MODES.EXAM) {
-        setTimeLeft(selectedQuestions.length * 90);
       } else {
         setTimeLeft(null);
       }
     }
-  }, [currentMode]);
+  }, [currentSettings]);
 
-  // Таймер
+  // Таймер для режима тренировки
   useEffect(() => {
     if (timeLeft !== null && timeLeft > 0 && !showAnswer && !quizComplete) {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
@@ -55,10 +73,8 @@ const HungarianQuizApp: React.FC = () => {
   }, [timeLeft, showAnswer, quizComplete]);
 
   const handleTimeUp = (): void => {
-    if (currentMode === MODES.PRACTICE) {
+    if (currentSettings?.mode === MODES.PRACTICE) {
       handleAnswer(null);
-    } else if (currentMode === MODES.EXAM) {
-      setQuizComplete(true);
     }
   };
 
@@ -81,24 +97,24 @@ const HungarianQuizApp: React.FC = () => {
       questionId: currentQuestion.id,
       userAnswer: answer,
       correct: isCorrect,
-      timeSpent: currentMode === MODES.PRACTICE ? (timeLeft ? 60 - timeLeft : null) : null
+      timeSpent: currentSettings?.mode === MODES.PRACTICE ? (timeLeft ? 60 - timeLeft : null) : null
     };
 
     setUserAnswers([...userAnswers, result]);
 
-    if (currentMode === MODES.STUDY) {
+    if (currentSettings?.mode === MODES.STUDY) {
       setShowAnswer(true);
     } else {
       setTimeout(() => {
         if (currentQuestionIndex < questions.length - 1) {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
-          if (currentMode === MODES.PRACTICE) {
+          if (currentSettings?.mode === MODES.PRACTICE) {
             setTimeLeft(60);
           }
         } else {
           setQuizComplete(true);
         }
-      }, currentMode === MODES.STUDY ? 0 : 1000);
+      }, 1000);
     }
   };
 
@@ -112,7 +128,7 @@ const HungarianQuizApp: React.FC = () => {
   };
 
   const resetQuiz = (): void => {
-    setCurrentMode(null);
+    setCurrentSettings(null);
     setCurrentQuestionIndex(0);
     setUserAnswers([]);
     setShowAnswer(false);
@@ -122,21 +138,28 @@ const HungarianQuizApp: React.FC = () => {
   };
 
   const restartCurrentMode = (): void => {
-    const mode = currentMode;
-    setCurrentMode(null);
-    setTimeout(() => setCurrentMode(mode), 100);
+    const settings = currentSettings;
+    setCurrentSettings(null);
+    setTimeout(() => setCurrentSettings(settings), 100);
   };
 
-  if (!currentMode) {
-    return <ModeSelector onSelect={setCurrentMode} />;
+  if (!currentSettings) {
+    return (
+      <ModeSelector
+        onSelect={setCurrentSettings}
+        totalQuestions={hungarianCultureQuestions.length}
+      />
+    );
   }
 
   if (quizComplete) {
     return (
       <ResultsScreen
         results={userAnswers}
+        questions={questions}
         onRestart={restartCurrentMode}
         onBackToMenu={resetQuiz}
+        mode={currentSettings.mode}
       />
     );
   }
@@ -145,23 +168,41 @@ const HungarianQuizApp: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
+      {/* Прогресс бар и информация */}
       <div className="max-w-2xl mx-auto mb-8">
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium text-gray-700">
             Вопрос {currentQuestionIndex + 1} из {questions.length}
           </span>
-          <button
-            onClick={resetQuiz}
-            className="text-sm text-gray-500 hover:text-gray-700"
-          >
-            Выйти
-          </button>
+          <div className="flex items-center space-x-4">
+            {currentSettings.mode === MODES.PRACTICE && timeLeft !== null && (
+              <span className={`text-sm font-mono ${timeLeft <= 10 ? 'text-red-500' : 'text-gray-600'}`}>
+                ⏰ {timeLeft}с
+              </span>
+            )}
+            <button
+              onClick={resetQuiz}
+              className="text-sm text-gray-500 hover:text-gray-700"
+            >
+              Выйти
+            </button>
+          </div>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
             className="bg-blue-500 h-2 rounded-full transition-all duration-300"
             style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
           />
+        </div>
+
+        {/* Информация о режиме */}
+        <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+          <span>
+            Режим: {currentSettings.mode === MODES.STUDY ? 'Изучение' : 'Тренировка'}
+          </span>
+          <span>
+            {currentSettings.shuffle ? 'Перемешано' : 'По порядку'}
+          </span>
         </div>
       </div>
 
@@ -170,11 +211,11 @@ const HungarianQuizApp: React.FC = () => {
         onAnswer={handleAnswer}
         showAnswer={showAnswer}
         userAnswer={userAnswers[currentQuestionIndex]?.userAnswer}
-        mode={currentMode}
+        mode={currentSettings.mode}
         timeLeft={timeLeft}
       />
 
-      {showAnswer && currentMode === MODES.STUDY && (
+      {showAnswer && currentSettings.mode === MODES.STUDY && (
         <div className="max-w-2xl mx-auto mt-6">
           <button
             onClick={handleNextQuestion}

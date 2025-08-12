@@ -305,5 +305,192 @@ export const hungarianCultureQuestions: Question[] = [
         correctAnswer: maskAnswer(['magyar borok', 'tokaji aszú', 'pálinka']),
         explanation: 'A hungarikum italok között vannak: magyar borok (tokaji aszú, egri bikavér), pálinkák. A tokaji aszú világszerte híres magyar desszertbor. | Среди хунгарикум напитков есть: венгерские вина (токайское асу, эгерская бычья кровь), палинка. Токайское асу - всемирно известное венгерское десертное вино.',
         image: null
+    },
+
+    // ВТОРОЙ РАЗДЕЛ: География и общие сведения о Венгрии
+
+    // Государственное устройство
+    {
+        id: 'state_001',
+        type: 'text_input',
+        category: 'államforma', // государственное устройство
+        difficulty: 1,
+        question: 'Mi Magyarország államformája?',
+        correctAnswer: maskAnswer(['köztársaság']),
+        explanation: 'Magyarország államformája köztársaság. A köztársasági elnök az államfő, aki kifejezi a nemzet egységét. | Государственная форма Венгрии - республика. Президент республики является главой государства, который выражает единство нации.',
+        image: null
+    },
+    {
+        id: 'state_002',
+        type: 'multiple_choice',
+        category: 'államforma',
+        difficulty: 2,
+        question: 'Ki Magyarország jelenlegi köztársasági elnöke?',
+        options: ['Dr. Áder János', 'Dr. Sulyok Tamás', 'Orbán Viktor', 'Dr. Novák Katalin'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Magyarország köztársasági elnöke Dr. Sulyok Tamás. Az Országgyűlés választja 5 évre titkos szavazással, legfeljebb egy alkalommal újraválasztható. | Президент Венгрии - доктор Тамаш Шульок. Государственное собрание избирает его на 5 лет тайным голосованием, может быть переизбран максимум один раз.',
+        image: null
+    },
+    {
+        id: 'state_003',
+        type: 'multiple_choice',
+        category: 'államforma',
+        difficulty: 2,
+        question: 'Hány évre választják meg a köztársasági elnököt?',
+        options: ['4 év', '5 év', '6 év', '7 év'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'A köztársasági elnököt az Országgyűlés 5 évre választja titkos szavazással. Legfeljebb egy alkalommal újraválasztható, a Magyar Honvédség főparancsnoka. | Президента республики Государственное собрание избирает на 5 лет тайным голосованием. Максимум может быть переизбран один раз, является главнокомандующим Венгерских сил обороны.',
+        image: null
+    },
+
+    // География
+    {
+        id: 'geo_003',
+        type: 'multiple_choice',
+        category: 'földrajz',
+        difficulty: 1,
+        question: 'Mekkora Magyarország területe?',
+        options: ['83 ezer km²', '93 ezer km²', '103 ezer km²', '113 ezer km²'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Magyarország területe 93 ezer km². Ez teszi Magyarországot Európa közepesen nagy országává. | Территория Венгрии составляет 93 тысячи км². Это делает Венгрию среднего размера страной в Европе.',
+        image: null
+    },
+    {
+        id: 'geo_004',
+        type: 'multiple_choice',
+        category: 'földrajz',
+        difficulty: 1,
+        question: 'Mennyi Magyarország népessége?',
+        options: ['8,6 millió fő', '9,6 millió fő', '10,6 millió fő', '11,6 millió fő'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Magyarország népessége 9,6 millió fő. A népesség többsége magyar, de jelentős nemzetiségi kisebbségek is élnek az országban. | Население Венгрии составляет 9,6 миллиона человек. Большинство населения венгры, но в стране также живут значительные национальные меньшинства.',
+        image: null
+    },
+    {
+        id: 'geo_005',
+        type: 'text_input',
+        category: 'földrajz',
+        difficulty: 1,
+        question: 'Mi Magyarország pénzneme?',
+        correctAnswer: maskAnswer(['forint']),
+        explanation: 'Magyarország pénzneme a forint. A forint az egyik legrégebbi európai pénznem neve, amely a firenzei aranyforintból származik. | Валютой Венгрии является форинт. Форинт - одно из старейших европейских названий валют, происходящее от флорентийского золотого флорина.',
+        image: null
+    },
+    {
+        id: 'geo_006',
+        type: 'text_input',
+        category: 'földrajz',
+        difficulty: 1,
+        question: 'Mi Magyarország hivatalos nyelve?',
+        correctAnswer: maskAnswer(['magyar']),
+        explanation: 'Magyarország hivatalos nyelve a magyar. A magyar nyelv a finnugor nyelvcsaládba tartozik, és egyedülálló Európában. | Официальный язык Венгрии - венгерский. Венгерский язык принадлежит к финно-угорской языковой семье и уникален в Европе.',
+        image: null
+    },
+
+    // Тájegységek (регионы)
+    {
+        id: 'geo_007',
+        type: 'multiple_choice',
+        category: 'földrajz',
+        difficulty: 2,
+        question: 'Melyek Magyarország fő tájegységei?',
+        options: ['Alföld, Felföld, Dunántúl', 'Alföld, Alpokalja, Dunántúli-dombság, Dunántúl-középhegység, Északi-középhegység, Kisalföld', 'Nagyalföld, Kisalföld, Mátra', 'Puszta, Hegyvidék, Dunántúl'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Magyarország tájegységei: Alföld, Alpokalja, Dunántúli-dombság, Dunántúl-középhegység, Északi-középhegység, Kisalföld. Ezek alkotják az ország természetföldrajzi felosztását. | Регионы Венгрии: Альфёльд, Альпокалья, Задунайская возвышенность, Задунайское среднегорье, Северное среднегорье, Кишальфёльд. Они составляют физико-географическое деление страны.',
+        image: null
+    },
+
+    // Vizek (водные объекты)
+    {
+        id: 'geo_008',
+        type: 'multiple_choice',
+        category: 'földrajz',
+        difficulty: 1,
+        question: 'Melyek Magyarország legnagyobb tavai?',
+        options: ['Balaton, Tisza-tó, Hévíz', 'Balaton, Fertő tó, Velencei-tó', 'Balaton, Öreg-tó, Sóstó', 'Fertő tó, Velencei-tó, Tisza-tó'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Magyarország legnagyobb tavai: Balaton, Fertő tó, Velencei-tó. A Balaton Közép-Európa legnagyobb tava, a Fertő tó határ menti tó Ausztriával. | Крупнейшие озера Венгрии: Балатон, озеро Ферте, Веленцейское озеро. Балатон - крупнейшее озеро Центральной Европы, озеро Ферте - пограничное озеро с Австрией.',
+        image: null
+    },
+    {
+        id: 'geo_009',
+        type: 'multiple_choice',
+        category: 'földrajz',
+        difficulty: 1,
+        question: 'Melyek Magyarország legnagyobb folyói?',
+        options: ['Duna, Tisza, Szamos, Körös', 'Duna, Tisza, Dráva, Rába', 'Tisza, Dráva, Maros, Szava', 'Duna, Rába, Zala, Ipoly'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Magyarország legnagyobb folyói: Duna, Tisza, Dráva, Rába. A Duna Európa második leghosszabb folyója, a Tisza a Duna legnagyobb mellékfolyója. | Крупнейшие реки Венгрии: Дунай, Тиса, Драва, Раба. Дунай - вторая по длине река Европы, Тиса - крупнейший приток Дуная.',
+        image: null
+    },
+
+    // Szomszédos országok (соседние страны)
+    {
+        id: 'geo_010',
+        type: 'multiple_choice',
+        category: 'földrajz',
+        difficulty: 2,
+        question: 'Hány országgal határos Magyarország?',
+        options: ['5', '6', '7', '8'],
+        correctAnswer: maskAnswer(2),
+        explanation: 'Magyarország 7 országgal határos: Szlovákia, Ukrajna, Románia, Szerbia, Horvátország, Szlovénia, Ausztria. Ez teszi Magyarországot az egyik legtöbb szomszéddal rendelkező európai országgá. | Венгрия граничит с 7 странами: Словакия, Украина, Румыния, Сербия, Хорватия, Словения, Австрия. Это делает Венгрию одной из европейских стран с наибольшим количеством соседей.',
+        image: null
+    },
+    {
+        id: 'geo_011',
+        type: 'text_input',
+        category: 'földrajz',
+        difficulty: 2,
+        question: 'Nevezz meg három szomszédos országot!',
+        correctAnswer: maskAnswer(['Szlovákia Ausztria Románia', 'Ausztria Szlovákia Szerbia', 'Románia Szerbia Horvátország']),
+        explanation: 'Magyarország szomszédos országai: Szlovákia, Ukrajna, Románia, Szerbia, Horvátország, Szlovénia, Ausztria. Bármelyik három helyes válasz. | Соседние страны Венгрии: Словакия, Украина, Румыния, Сербия, Хорватия, Словения, Австрия. Любые три являются правильным ответом.',
+        image: null
+    },
+
+    // Nemzetiségek (национальности)
+    {
+        id: 'nat_001',
+        type: 'multiple_choice',
+        category: 'nemzetiségek', // национальности
+        difficulty: 2,
+        question: 'Mely nemzetiségek élnek Magyarországon?',
+        options: ['Csak magyarok', 'Magyar, német, roma, szlovák', 'Bolgár, görög, horvát, lengyel, német, örmény, roma, román, ruszin, szerb, szlovák, szlovén, ukrán', 'Magyar, osztrák, orosz'],
+        correctAnswer: maskAnswer(2),
+        explanation: 'Magyarország nemzetiségei: bolgár, görög, horvát, lengyel, német, örmény, roma, román, ruszin, szerb, szlovák, szlovén és ukrán. Az ország soknemzetiségű, ami történelmi fejlődésének eredménye. | Национальности Венгрии: болгары, греки, хорваты, поляки, немцы, армяне, цыгане, румыны, русины, сербы, словаки, словенцы и украинцы. Страна многонациональная, что является результатом ее исторического развития.',
+        image: null
+    },
+
+    // Trianoni békeszerződés (Трианонский мирный договор)
+    {
+        id: 'hist_013',
+        type: 'multiple_choice',
+        category: 'történelem',
+        difficulty: 2,
+        question: 'Mikor írták alá a trianoni békeszerződést?',
+        options: ['1919. június 4.', '1920. június 4.', '1921. június 4.', '1918. június 4.'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'A trianoni békeszerződést 1920. június 4-én íratták alá Magyarországgal a győztes hatalmak az első világháborút lezáró békeként. | Трианонский мирный договор был подписан с Венгрией 4 июня 1920 года державами-победительницами как мир, завершающий Первую мировую войну.',
+        image: null
+    },
+    {
+        id: 'hist_014',
+        type: 'multiple_choice',
+        category: 'történelem',
+        difficulty: 2,
+        question: 'Milyen területi változásokat okozott a trianoni békeszerződés?',
+        options: ['Magyarország területe nőtt', 'Magyarország elveszítette területének kétharmadát', 'Magyarország területe felére csökkent', 'Nem változott a terület'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'A békediktátum következtében Magyarország elveszítette területének mintegy kétharmadát, népessége pedig 18,2 millió főről 7,6 millió főre csökkent. A magyar nemzet egyharmada, 3,3 millió magyar rekedt határainkon kívül. | В результате мирного диктата Венгрия потеряла около двух третей своей территории, а население сократилось с 18,2 миллиона до 7,6 миллиона человек. Треть венгерской нации, 3,3 миллиона венгров оказались за пределами границ.',
+        image: null
+    },
+    {
+        id: 'hist_015',
+        type: 'text_input',
+        category: 'történelem',
+        difficulty: 2,
+        question: 'Hányan rekedt ki magyar a határon túl a trianoni béke után?',
+        correctAnswer: maskAnswer(['3,3 millió', '3.3 millió']),
+        explanation: 'A trianoni békeszerződés után 3,3 millió magyar rekedt határainkon kívül, ami a magyar nemzet egyharmadát jelentette. Ez lett az egyik legfájdalmasabb következménye a békeszerződésnek. | После Трианонского мирного договора 3,3 миллиона венгров оказались за пределами границ, что составляло треть венгерской нации. Это стало одним из самых болезненных последствий мирного договора.',
+        image: null
     }
 ];
