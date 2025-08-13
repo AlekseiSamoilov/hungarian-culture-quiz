@@ -492,5 +492,461 @@ export const hungarianCultureQuestions: Question[] = [
         correctAnswer: maskAnswer(['3,3 millió', '3.3 millió']),
         explanation: 'A trianoni békeszerződés után 3,3 millió magyar rekedt határainkon kívül, ami a magyar nemzet egyharmadát jelentette. Ez lett az egyik legfájdalmasabb következménye a békeszerződésnek. | После Трианонского мирного договора 3,3 миллиона венгров оказались за пределами границ, что составляло треть венгерской нации. Это стало одним из самых болезненных последствий мирного договора.',
         image: null
+    },
+    // ТРЕТИЙ РАЗДЕЛ: Европейская и венгерская литература и музыка
+    // 27 вопросов для добавления в основной файл
+
+    // Европейская литература
+    {
+        id: 'lit_eur_001',
+        type: 'multiple_choice',
+        category: 'európai irodalom', // европейская литература
+        difficulty: 1,
+        question: 'Ki írta a "Rómeó és Júlia" című művet?',
+        options: ['William Shakespeare', 'Voltaire', 'Johann Wolfgang von Goethe', 'Charles Dickens'],
+        correctAnswer: maskAnswer(0),
+        explanation: 'William Shakespeare írta a "Rómeó és Júlia" című tragédiát. Shakespeare az angol irodalom és a világirodalom egyik legnagyobb alakja. | "Ромео и Джульетту" написал Уильям Шекспир. Шекспир - одна из величайших фигур английской и мировой литературы.',
+        image: null
+    },
+    {
+        id: 'lit_eur_002',
+        type: 'text_input',
+        category: 'európai irodalom',
+        difficulty: 2,
+        question: 'Voltaire melyik művét említi a tananyag?',
+        correctAnswer: maskAnswer(['Candide']),
+        explanation: 'Voltaire "Candide" című műve az európai felvilágosodás irodalmának kiemelkedő alkotása. A mű filozófiai szatíra, amely a kor optimizmusát kritizálja. | "Кандид" Вольтера - выдающееся произведение литературы европейского Просвещения. Это философская сатира, критикующая оптимизм эпохи.',
+        image: null
+    },
+    {
+        id: 'lit_eur_003',
+        type: 'multiple_choice',
+        category: 'európai irodalom',
+        difficulty: 2,
+        question: 'Johann Wolfgang von Goethe melyik műve szerepel a tananyagban?',
+        options: ['Werther', 'Faust', 'Wilhelm Meister', 'Iphigenie'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Johann Wolfgang von Goethe "Faust" című műve a német és az európai irodalom legnagyobb alkotásai közé tartozik. A mű az emberi tudásvágy és a megváltás témáját dolgozza fel. | "Фауст" Иоганна Вольфганга фон Гёте относится к величайшим произведениям немецкой и европейской литературы. Произведение обрабатывает тему человеческой жажды знаний и спасения.',
+        image: null
+    },
+
+    // Европейская музыка
+    {
+        id: 'mus_eur_001',
+        type: 'multiple_choice',
+        category: 'európai zene', // европейская музыка
+        difficulty: 1,
+        question: 'Ki szerezte az Európai Unió himnuszát?',
+        options: ['Wolfgang Amadeus Mozart', 'Ludwig van Beethoven', 'Johann Sebastian Bach', 'Franz Schubert'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Ludwig van Beethoven IX. szimfóniájának negyedik tétele vált az Európai Unió himnuszává. A dallam Friedrich von Schiller "Örömóda" című költeményének megzenésített változata. | Четвертая часть IX симфонии Людвига ван Бетховена стала гимном Европейского союза. Мелодия - это музыкальная версия стихотворения Фридриха фон Шиллера "Ода к радости".',
+        image: null
+    },
+    {
+        id: 'mus_eur_002',
+        type: 'text_input',
+        category: 'európai zene',
+        difficulty: 2,
+        question: 'Melyik év(ben) mutatta be Beethoven a IX. szimfóniát?',
+        correctAnswer: maskAnswer(['1824']),
+        explanation: 'Ludwig van Beethoven 1824-ben mutatta be IX. szimfóniáját. Ennek negyedik tétele, az Örömóda vált az Európai Unió jelképévé. | Людвиг ван Бетховен представил свою IX симфонию в 1824 году. Четвертая часть, Ода к радости, стала символом Европейского союза.',
+        image: null
+    },
+    {
+        id: 'mus_eur_003',
+        type: 'multiple_choice',
+        category: 'európai zene',
+        difficulty: 1,
+        question: 'Wolfgang Amadeus Mozart melyik operája szerepel a tananyagban?',
+        options: ['Don Giovanni', 'A varázsfuvola', 'Figaro házassága', 'Così fan tutte'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Wolfgang Amadeus Mozart "A varázsfuvola" című operája a klasszikus zene egyik legismertebb műve. Mozart az osztrák zeneszerző, a bécsi klasszika képviselője. | Опера Вольфганга Амадея Моцарта "Волшебная флейта" - одно из самых известных произведений классической музыки. Моцарт - австрийский композитор, представитель венского классицизма.',
+        image: null
+    },
+    {
+        id: 'mus_eur_004',
+        type: 'text_input',
+        category: 'európai zene',
+        difficulty: 2,
+        question: 'Pjotr Iljics Csajkovszkij melyik balettje szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['A hattyúk tava']),
+        explanation: 'Pjotr Iljics Csajkovszkij "A hattyúk tava" című balettje a világirodalom egyik legismertebb balettje. A orosz zeneszerző a romantikus zene kiemelkedő alakja. | Балет Петра Ильича Чайковского "Лебединое озеро" - один из самых известных балетов в мировой литературе. Русский композитор - выдающаяся фигура романтической музыки.',
+        image: null
+    },
+
+    // Венгерская музыка
+    {
+        id: 'mus_hun_001',
+        type: 'multiple_choice',
+        category: 'magyar zene', // венгерская музыка
+        difficulty: 1,
+        question: 'Kik voltak a magyar népzenekutatás két leghíresebb képviselője?',
+        options: ['Liszt Ferenc és Erkel Ferenc', 'Bartók Béla és Kodály Zoltán', 'Erkel Ferenc és Kodály Zoltán', 'Bartók Béla és Liszt Ferenc'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Bartók Béla és Kodály Zoltán a magyar népzenekutatás két leghíresebb képviselője. Ők gyűjtötték és kutatták a magyar népdalokat az 1900-as évektől kezdődően. | Бела Барток и Золтан Кодай - два самых известных представителя венгерского исследования народной музыки. Они собирали и исследовали венгерские народные песни с 1900-х годов.',
+        image: null
+    },
+    {
+        id: 'mus_hun_002',
+        type: 'text_input',
+        category: 'magyar zene',
+        difficulty: 2,
+        question: 'Mikor kezdték gyűjteni a magyar népdalokat?',
+        correctAnswer: maskAnswer(['1800-as évektől', '19. század']),
+        explanation: 'A népdalokat az 1800-as évektől kezdték gyűjteni, dallamukat lekottázni, szövegüket lejegyezni. Ez volt a magyar népzenekutatás kezdete. | Народные песни начали собирать с 1800-х годов, записывать их мелодии нотами, записывать тексты. Это было началом венгерского исследования народной музыки.',
+        image: null
+    },
+    {
+        id: 'mus_hun_003',
+        type: 'multiple_choice',
+        category: 'magyar zene',
+        difficulty: 2,
+        question: 'Erkel Ferenc melyik operája szerepel a tananyagban?',
+        options: ['Hunyadi László', 'Bánk bán', 'Dózsa György', 'István király'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Erkel Ferenc "Bánk bán" operája a magyar opera történetének legjelentősebb műve. Erkel Ferenc a magyar nemzeti opera megteremtője. | Опера Ференца Эркеля "Банк бан" - самое значительное произведение в истории венгерской оперы. Ференц Эркель - создатель венгерской национальной оперы.',
+        image: null
+    },
+    {
+        id: 'mus_hun_004',
+        type: 'text_input',
+        category: 'magyar zene',
+        difficulty: 2,
+        question: 'Liszt Ferenc melyik műveit említi a tananyag?',
+        correctAnswer: maskAnswer(['Magyar rapszódiák']),
+        explanation: 'Liszt Ferenc "Magyar rapszódiák" című művei világhírűek. Liszt Ferenc zongoravirtuóz és zeneszerző volt, aki a magyar népzene elemeit használta fel műveiben. | "Венгерские рапсодии" Ференца Листа всемирно известны. Ференц Лист был пианистом-виртуозом и композитором, который использовал элементы венгерской народной музыки в своих произведениях.',
+        image: null
+    },
+    {
+        id: 'mus_hun_005',
+        type: 'multiple_choice',
+        category: 'magyar zene',
+        difficulty: 2,
+        question: 'Bartók Béla melyik operája szerepel a tananyagban?',
+        options: ['A fából faragott királyfi', 'A kékszakállú herceg vára', 'A csodálatos mandarin', 'Mikrokozmosz'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Bartók Béla "A kékszakállú herceg vára" című operája a magyar zene 20. századi remekműve. Bartók a magyar népzene kutatója és modern zeneszerző volt. | Опера Белы Бартока "Замок герцога Синяя Борода" - шедевр венгерской музыки XX века. Барток был исследователем венгерской народной музыки и современным композитором.',
+        image: null
+    },
+    {
+        id: 'mus_hun_006',
+        type: 'text_input',
+        category: 'magyar zene',
+        difficulty: 2,
+        question: 'Kodály Zoltán melyik művét említi a tananyag?',
+        correctAnswer: maskAnswer(['Háry János']),
+        explanation: 'Kodály Zoltán "Háry János" című zenei meséje a magyar zeneirodalm egyik legismertebb műve. A mű magyar népdalokra épül és Háry János kalandjait meséli el. | Музыкальная сказка Золтана Кодая "Хари Янош" - одно из самых известных произведений венгерской музыкальной литературы. Произведение основано на венгерских народных песнях и рассказывает о приключениях Хари Яноша.',
+        image: null
+    },
+
+    // Венгерская литература - Ренессанс и барокко
+    {
+        id: 'lit_hun_001',
+        type: 'multiple_choice',
+        category: 'magyar irodalom', // венгерская литература
+        difficulty: 2,
+        question: 'Ki volt a reneszánsz irodalom kiemelkedő alakja, aki a "Pannónia dicsérete" című művet írta?',
+        options: ['Balassi Bálint', 'Janus Pannonius', 'Zrínyi Miklós', 'Kazinczy Ferenc'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Janus Pannonius írta a "Pannónia dicsérete" című művet. Ő volt a magyar reneszánsz irodalom kiemelkedő alakja, humanista költő és püspök. | "Хвалу Паннонии" написал Янус Паннониус. Он был выдающейся фигурой венгерской литературы эпохи Возрождения, поэтом-гуманистом и епископом.',
+        image: null
+    },
+    {
+        id: 'lit_hun_002',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Balassi Bálint melyik műve szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['Hogy Júliára talála, így köszöne néki']),
+        explanation: 'Balassi Bálint "Hogy Júliára talála, így köszöne néki" című műve a reneszánsz kori magyar irodalom jelentős alkotása. Balassi a magyar reneszánsz líra megteremtője. | Произведение Балинта Балашши "Как встретил Юлию, так приветствовал ее" - значительное творение венгерской литературы эпохи Возрождения. Балашши - создатель венгерской ренессансной лирики.',
+        image: null
+    },
+    {
+        id: 'lit_hun_003',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Ki írta a "Szigeti veszedelem" című művet?',
+        options: ['Balassi Bálint', 'Janus Pannonius', 'Zrínyi Miklós', 'Csokonai Vitéz Mihály'],
+        correctAnswer: maskAnswer(2),
+        explanation: 'Zrínyi Miklós írta a "Szigeti veszedelem" című eposzát. Ez a mű a barokk irodalom kiemelkedő alkotása, amely a szigetvári ostromot örökíti meg. | "Сигетскую печаль" написал Миклош Зриньи. Это произведение - выдающееся творение литературы барокко, которое увековечивает осаду Сигетвара.',
+        image: null
+    },
+
+    // Венгерская литература - Просвещение и классицизм
+    {
+        id: 'lit_hun_004',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Csokonai Vitéz Mihály melyik műve szerepel a tananyagban?',
+        options: ['Dorottya', 'A reményhez', 'Lillafüredi', 'Anakreoni dalok'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Csokonai Vitéz Mihály "A reményhez" című verse a felvilágosodás irodalmának kiemelkedő műve. Csokonai a magyar felvilágosodás nagy költője volt. | Стихотворение Михая Чоконаи Витеза "К надежде" - выдающееся произведение литературы Просвещения. Чоконаи был великим поэтом венгерского Просвещения.',
+        image: null
+    },
+    {
+        id: 'lit_hun_005',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Batsányi János melyik műve szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['A franciaországi változásokra']),
+        explanation: 'Batsányi János "A franciaországi változásokra" című verse a felvilágosodás kori magyar irodalom jelentős műve. A vers a francia forradalomra reflektál. | Стихотворение Яноша Баташни "На французские изменения" - значительное произведение венгерской литературы эпохи Просвещения. Стихотворение отражает французскую революцию.',
+        image: null
+    },
+    {
+        id: 'lit_hun_006',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Ki volt a hazai nyelvújítás vezéralakja?',
+        options: ['Berzsenyi Dániel', 'Kazinczy Ferenc', 'Csokonai Vitéz Mihály', 'Batsányi János'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Kazinczy Ferenc volt a hazai nyelvújítás vezéralakja. Ő szervezte és irányította a magyar nyelv megújítását, modernizálását a 18-19. század fordulóján. | Ференц Казинци был ведущей фигурой отечественного языкового обновления. Он организовал и руководил обновлением, модернизацией венгерского языка на рубеже XVIII-XIX веков.',
+        image: null
+    },
+    {
+        id: 'lit_hun_007',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Berzsenyi Dániel melyik műve szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['Az első szerelem']),
+        explanation: 'Berzsenyi Dániel "Az első szerelem" című verse a klasszicista irodalom jelentős műve. Berzsenyi a magyar klasszicizmus kiemelkedő költője volt. | Стихотворение Даниела Берженьи "Первая любовь" - значительное произведение классицистской литературы. Берженьи был выдающимся поэтом венгерского классицизма.',
+        image: null
+    },
+
+    // Венгерская литература - Романтизм
+    {
+        id: 'lit_hun_008',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 1,
+        question: 'Ki írta a magyar nemzeti himnuszt?',
+        options: ['Vörösmarty Mihály', 'Kölcsey Ferenc', 'Petőfi Sándor', 'Arany János'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Kölcsey Ferenc írta a "Himnusz" című verset, amely Magyarország nemzeti himnusza lett. A vers 1823-ban íródott és Erkel Ferenc zenésítette meg. | Ференц Кёльчеи написал стихотворение "Гимн", которое стало национальным гимном Венгрии. Стихотворение было написано в 1823 году, и Ференц Эркель положил его на музыку.',
+        image: null
+    },
+    {
+        id: 'lit_hun_009',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Vörösmarty Mihály melyik műve szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['Szózat']),
+        explanation: 'Vörösmarty Mihály "Szózat" című verse a magyar romantika egyik legjelentősebb műve. A vers a magyar nemzet sorsáról és jövőjéről szól. | Стихотворение Михая Вёрёшмарти "Призыв" - одно из самых значительных произведений венгерского романтизма. Стихотворение о судьбе и будущем венгерской нации.',
+        image: null
+    },
+    {
+        id: 'lit_hun_010',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 1,
+        question: 'Petőfi Sándor melyik műve szerepel a tananyagban?',
+        options: ['János vitéz', 'Nemzeti dal', 'Egy gondolat bánt engemet', 'Szabadság, szerelem'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Petőfi Sándor "Nemzeti dal" című verse a magyar romantika és az 1848-as forradalom egyik legfontosabb műve. "Talpra magyar, hí a haza!" kezdetű vers. | Стихотворение Шандора Петёфи "Национальная песня" - одно из важнейших произведений венгерского романтизма и революции 1848 года. Стихотворение начинается словами "Вставай, венгр, зовет отчизна!"',
+        image: null
+    },
+    {
+        id: 'lit_hun_011',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Jókai Mór melyik regénye szerepel a tananyagban?',
+        options: ['Az arany ember', 'A kőszívű ember fiai', 'Egy magyar nábob', 'A janicsárok végnapjai'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Jókai Mór "A kőszívű ember fiai" című regénye a magyar romantikus regényirodalom kiemelkedő műve. A regény az 1848-49-es szabadságharc eseményeit dolgozza fel. | Роман Мора Йокаи "Сыновья человека с каменным сердцем" - выдающееся произведение венгерской романтической прозы. Роман обрабатывает события освободительной войны 1848-49 годов.',
+        image: null
+    },
+    {
+        id: 'lit_hun_012',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Arany János melyik műve szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['A walesi bárdok']),
+        explanation: 'Arany János "A walesi bárdok" című balladája a magyar romantika mestermūve. A ballada III. Eduárd walesi hadjáratát és a bárdok sorsát dolgozza fel. | Баллада Яноша Арани "Валлийские барды" - шедевр венгерского романтизма. Баллада обрабатывает валлийский поход Эдуарда III и судьбу бардов.',
+        image: null
+    },
+    {
+        id: 'lit_hun_013',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Katona József melyik drámája szerepel a tananyagban?',
+        options: ['Jeruzsálem pusztulása', 'Bánk bán', 'Vajda tornya', 'Ziska'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Katona József "Bánk bán" című drámája a magyar romantikus dráma legjelentősebb műve. A dráma a 13. századi magyar történelem eseményeit dolgozza fel. | Драма Йожефа Катоны "Банк бан" - самое значительное произведение венгерской романтической драмы. Драма обрабатывает события венгерской истории XIII века.',
+        image: null
+    },
+    {
+        id: 'lit_hun_014',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Madách Imre melyik művét említi a tananyag?',
+        correctAnswer: maskAnswer(['Az ember tragédiája']),
+        explanation: 'Madách Imre "Az ember tragédiája" című drámai költeménye a magyar irodalom egyik legnagyobb műve. A mű az emberiség történetét és jövőjét mutatja be. | Драматическая поэма Имре Мадача "Трагедия человека" - одно из величайших произведений венгерской литературы. Произведение представляет историю и будущее человечества.',
+        image: null
+    },
+
+    // Венгерская литература - XX век
+    {
+        id: 'lit_hun_015',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Ady Endre melyik műve szerepel a tananyagban?',
+        options: ['Góg és Magóg fia vagyok én', 'Elbocsátó, szép üzenet', 'A Hét-országúton', 'Kocsi-út az éjszakában'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Ady Endre "Elbocsátó, szép üzenet" című verse a 20. századi magyar líra meghatározó műve. Ady a magyar költészet megújítója volt. | Стихотворение Эндре Ади "Прощальное, прекрасное послание" - определяющее произведение венгерской лирики XX века. Ади был обновителем венгерской поэзии.',
+        image: null
+    },
+    {
+        id: 'lit_hun_016',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Móricz Zsigmond melyik regénye szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['Rokonok']),
+        explanation: 'Móricz Zsigmond "Rokonok" című regénye a 20. századi magyar próza jelentős műve. Móricz a magyar realizmus nagy képviselője volt. | Роман Жигмонда Мориса "Родственники" - значительное произведение венгерской прозы XX века. Мориц был великим представителем венгерского реализма.',
+        image: null
+    },
+    {
+        id: 'lit_hun_017',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Kosztolányi Dezső melyik regénye szerepel a tananyagban?',
+        options: ['Pacsirta', 'Édes Anna', 'Nero, a véres költő', 'Aranysárkány'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Kosztolányi Dezső "Édes Anna" című regénye a 20. századi magyar irodalom klasszikusa. A regény egy cselédlány sorsát mutatja be a polgári családban. | Роман Дежё Костоланьи "Милая Анна" - классика венгерской литературы XX века. Роман представляет судьбу служанки в буржуазной семье.',
+        image: null
+    },
+    {
+        id: 'lit_hun_018',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Karinthy Frigyes melyik műve szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['Így írtok ti']),
+        explanation: 'Karinthy Frigyes "Így írtok ti" című irodalmi paródiagyűjteménye a magyar humor és szatíra klasszikus műve. Karinthy nagy humorista és író volt. | Сборник литературных пародий Фридеша Каринти "Так вы пишете" - классическое произведение венгерского юмора и сатиры. Каринти был великим юмористом и писателем.',
+        image: null
+    },
+    {
+        id: 'lit_hun_019',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'József Attila melyik verse szerepel a tananyagban?',
+        options: ['Óda', 'Tiszta szívvel', 'Mama', 'Külvárosi éj'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'József Attila "Tiszta szívvel" című verse a 20. századi magyar líra kiemelkedő műve. József Attila a magyar költészet egyik legnagyobb alakja. | Стихотворение Аттилы Йожефа "С чистым сердцем" - выдающееся произведение венгерской лирики XX века. Аттила Йожеф - одна из величайших фигур венгерской поэзии.',
+        image: null
+    },
+    {
+        id: 'lit_hun_020',
+        type: 'text_input',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Radnóti Miklós melyik versének részlete szerepel a tananyagban?',
+        correctAnswer: maskAnswer(['Nem tudhatom']),
+        explanation: 'Radnóti Miklós "Nem tudhatom" című verse a 20. századi magyar líra megrázó műve. Radnóti a Holocaust áldozata lett, versei a háború borzalmairól tanúskodnak. | Стихотворение Миклоша Радноти "Не могу знать" - потрясающее произведение венгерской лирики XX века. Радноти стал жертвой Холокоста, его стихи свидетельствуют об ужасах войны.',
+        image: null
+    },
+    {
+        id: 'lit_hun_021',
+        type: 'multiple_choice',
+        category: 'magyar irodalom',
+        difficulty: 2,
+        question: 'Márai Sándor melyik műve szerepel a tananyagban?',
+        options: ['Szindbád hazamegy', 'Egy polgár vallomása', 'A gyertyák csonkig égnek', 'Eszter hagyatéka'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Márai Sándor "Egy polgár vallomása" című műve a 20. századi magyar próza jelentős alkotása. Márai a polgári értékek krónikása volt. | Произведение Шандора Мараи "Исповедь буржуа" - значительное творение венгерской прозы XX века. Мараи был хроникером буржуазных ценностей.',
+        image: null
+    },
+
+    // Irodalmi központok és intézmények
+    {
+        id: 'lit_inst_001',
+        type: 'multiple_choice',
+        category: 'irodalmi intézmények', // литературные институты
+        difficulty: 2,
+        question: 'Az 1820-as években melyik város vált az ország irodalmi központjává?',
+        options: ['Debrecen', 'Szeged', 'Pest-Buda', 'Pécs'],
+        correctAnswer: maskAnswer(2),
+        explanation: 'Az 1820-as éveket a politikai és az irodalom szoros összefonódása jellemezte, ekkor vált Pest-Buda az ország irodalmi központjává. Itt indultak újságok, folyóiratok. | 1820-е годы характеризовались тесным переплетением политики и литературы, тогда Пешт-Буда стала литературным центром страны. Здесь начали издаваться газеты и журналы.',
+        image: null
+    },
+    {
+        id: 'lit_inst_002',
+        type: 'text_input',
+        category: 'irodalmi intézmények',
+        difficulty: 2,
+        question: 'Mikor kezdte meg működését a Magyar Tudományos Akadémia?',
+        correctAnswer: maskAnswer(['1820-as évek', '1825']),
+        explanation: 'A Magyar Tudományos Akadémia az 1820-as években kezdte meg működését. Az akadémia a magyar tudomány és irodalom fejlesztésének központja lett. | Венгерская академия наук начала свою деятельность в 1820-х годах. Академия стала центром развития венгерской науки и литературы.',
+        image: null
+    },
+    {
+        id: 'lit_inst_003',
+        type: 'multiple_choice',
+        category: 'irodalmi intézmények',
+        difficulty: 2,
+        question: 'Mikor nyitotta meg kapuit a Pesti Magyar Színház?',
+        options: ['1835', '1837', '1839', '1841'],
+        correctAnswer: maskAnswer(1),
+        explanation: '1837-ben nyitotta meg kapuit a Pesti Magyar Színház, amely a Nemzeti Színház elődje volt. Ez fontos mérföldkő volt a magyar kultúra fejlődésében. | В 1837 году открыл свои двери Пештский венгерский театр, который был предшественником Национального театра. Это была важная веха в развитии венгерской культуры.',
+        image: null
+    },
+
+    // Történelmi kontextus (1956-os forradalom)
+    {
+        id: 'hist_1956_001',
+        type: 'multiple_choice',
+        category: 'történelem',
+        difficulty: 2,
+        question: 'Mikor tört ki az 1956-os forradalom?',
+        options: ['november 2.', 'november 4.', 'október 23.', 'október 25.'],
+        correctAnswer: maskAnswer(2),
+        explanation: 'Az 1956-os magyar forradalom október 23-án tört ki. Ez a nap ma nemzeti ünnep Magyarországon, az 1956-os forradalom és szabadságharc emléknapja. | Венгерская революция 1956 года вспыхнула 23 октября. Этот день сегодня является национальным праздником в Венгрии, днем памяти революции и освободительной войны 1956 года.',
+        image: null
+    },
+    {
+        id: 'hist_1956_002',
+        type: 'multiple_choice',
+        category: 'történelem',
+        difficulty: 2,
+        question: 'Mikor verték le a szovjet csapatok az 1956-os forradalmat?',
+        options: ['november 2.', 'november 4.', 'november 6.', 'november 8.'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'November 4-én a szovjet csapatok ígéretük ellenére, miszerint elhagyják az országot, megkezdték a magyar fegyveres ellenállás felszámolását. | 4 ноября советские войска, вопреки своему обещанию покинуть страну, начали ликвидацию венгерского вооруженного сопротивления.',
+        image: null
+    },
+    {
+        id: 'hist_1956_003',
+        type: 'text_input',
+        category: 'történelem',
+        difficulty: 2,
+        question: 'Ki lett Magyarország vezetésére kijelölve a szovjet csapatok által?',
+        correctAnswer: maskAnswer(['Kádár János']),
+        explanation: 'Visszaállt a kommunista egypártrendszer, Magyarország vezetésére Kádár Jánost jelölték ki, Nagy Imrét pedig kivégezték. A Kádár János nevével fémjelzett kommunista korszak 1956-tól egészen 1989-ig tartott. | Восстановилась коммунистическая однопартийная система, на руководство Венгрией был назначен Янош Кадар, а Имре Надь был казнен. Коммунистическая эпоха, связанная с именем Яноша Кадара, длилась с 1956 по 1989 год.',
+        image: null
+    },
+
+    // Európai Unió alapvető jogok kontextusában
+    {
+        id: 'eu_rights_001',
+        type: 'multiple_choice',
+        category: 'európai értékek', // европейские ценности
+        difficulty: 2,
+        question: 'Mely értékeket tartja szem előtt az Európai Unió?',
+        options: ['Gazdasági növekedés', 'Demokratikus értékek, emberi jogok', 'Katonai erő', 'Technológiai fejlődés'],
+        correctAnswer: maskAnswer(1),
+        explanation: 'Az Európai Unió a demokratikus értékeket, emberi jogokat, jogállamiságot és az európai kultúra megőrzését tartja szem előtt. Ezek az alapvető európai értékek. | Европейский союз придерживается демократических ценностей, прав человека, правового государства и сохранения европейской культуры. Это основные европейские ценности.',
+        image: null
     }
 ];
